@@ -1,0 +1,51 @@
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="tipo-documento" class="form-label">Tipo de Documento</label>
+        <select class="form-select" id="tipo-documento" formControlName="tipo_documento" required>
+          <option value="">Seleccione...</option>
+          <option value="DNI">DNI</option>
+          <option value="RUC">RUC</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="nro-documento" class="form-label">Nro de Documento</label>
+        <input type="text" class="form-control" id="nro-documento" formControlName="numero_documento"  required>
+      </div>
+      <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="nombres" formControlName="nombres"  required>
+      </div>
+      <div class="mb-3">
+        <label for="apellido-paterno" class="form-label">Apellido Paterno</label>
+        <input type="text" class="form-control" id="apellido-paterno" formControlName="apellido_paterno" required>
+      </div>
+      <div class="mb-3">
+        <label for="apellido-materno" class="form-label">Apellido Materno</label>
+        <input type="text" class="form-control" id="apellido-materno" formControlName="apellido_materno" required>
+      </div>
+      <div class="mb-3">
+        <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="fecha-nacimiento" formControlName="fecha_nacimiento" required>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" formControlName="telefono"required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="sexo" class="form-label">Sexo</label>
+        <select class="form-select" id="sexo" formControlName="sexo" required>
+          <option value="">Seleccione...</option>
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
