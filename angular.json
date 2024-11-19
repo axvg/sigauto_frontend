@@ -44,7 +44,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
@@ -113,5 +114,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4ead8e79-6c88-4ec5-b07f-8279997d467c"
   }
 }
