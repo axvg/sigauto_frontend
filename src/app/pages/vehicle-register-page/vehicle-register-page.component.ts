@@ -10,4 +10,5 @@ import { VehicleRegistrationComponent } from "../../components/vehicle-registrat
 })
 export class VehicleRegisterPageComponent {
 
+  
 }
