@@ -1,17 +1,20 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '@services/auth.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-inicio-sesion',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, HttpClientModule, RouterModule],
   templateUrl: './inicio-sesion.component.html',
   styleUrl: './inicio-sesion.component.scss'
 })
 export class InicioSesionComponent {
   authService = inject(AuthService);
+  location = inject(Location);
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -39,5 +42,9 @@ export class InicioSesionComponent {
         console.error('Login failed', error);
       }
     );
+  }
+
+  onBack() {
+    this.location.back();
   }
 }
