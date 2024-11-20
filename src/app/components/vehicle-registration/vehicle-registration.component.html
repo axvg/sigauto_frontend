@@ -1,0 +1,68 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="placa" class="form-label">Placa de tu vehículo</label>
+      <input
+        type="text"
+        id="placa"
+        class="form-control"
+        formControlName="placa"
+        placeholder="Ingresa la placa"
+        required
+      />
+      <div
+        *ngIf="vehicleForm.get('placa')?.invalid && vehicleForm.get('placa')?.touched"
+        class="text-danger"
+      >
+        La placa es obligatoria.
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="marca" class="form-label">Marca del auto</label>
+      <select id="marca" class="form-select" formControlName="marca" required>
+        <option value="" disabled selected>Selecciona una marca</option>
+        <option>Marca 1</option>
+        <option>Marca 2</option>
+        <option>Marca 3</option>
+      </select>
+    </div>
+  
+    <div class="mb-3">
+      <label for="modelo" class="form-label">Modelo del auto</label>
+      <select id="modelo" class="form-select" formControlName="modelo" required>
+        <option value="" disabled selected>Selecciona un modelo</option>
+        <option>Modelo 1</option>
+        <option>Modelo 2</option>
+        <option>Modelo 3</option>
+      </select>
+    </div>
+  
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha del auto</label>
+      <select id="fecha" class="form-select" formControlName="fecha" required>
+        <option value="" disabled selected>Selecciona una fecha</option>
+        <option>Fecha 1</option>
+        <option>Fecha 2</option>
+        <option>Fecha 3</option>
+      </select>
+    </div>
+  
+    <div class="mb-3">
+      <label for="comentarios" class="form-label">Comentarios adicionales</label>
+      <textarea
+        id="comentarios"
+        class="form-control"
+        formControlName="comentarios"
+        rows="4"
+        placeholder="Escribe tus comentarios"
+      ></textarea>
+    </div>
+  
+    <div class="d-flex justify-content-between">
+      <button type="button" class="btn btn-secondary" (click)="onBack()">
+        &#8592; Volver
+      </button>
+      <button type="submit" class="btn btn-primary">Enviar &#10148;</button>
+    </div>
+  </form>
+  
