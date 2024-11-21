@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
+import { RegisterModel } from '@models/register-model';
 import { TokenResponse } from '@models/token-response';
 import { tap } from 'rxjs';
 
@@ -28,5 +29,17 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
+  }
+
+  register(registerData: RegisterModel){
+    return this.http.post<TokenResponse>(`${environment.url}/api/auth/register`, registerData).pipe(
+      tap((res) => {
+        console.log('Register response', res);
+      }),
+      tap((res) => {
+        localStorage.setItem('token', res?.token);
+        this.router.navigate(['/']);
+      })
+    )
   }
 }
