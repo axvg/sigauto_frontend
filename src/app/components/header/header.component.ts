@@ -15,8 +15,8 @@ export class HeaderComponent {
   authService = inject(AuthService);
   tokenService = inject(TokenService);
 
-  get email(): string | null {
-    return this.tokenService.getEmail();
+  get names(): string | null {
+    return this.tokenService.getNames();
   }
 
   logout(){
