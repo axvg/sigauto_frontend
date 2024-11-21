@@ -30,7 +30,8 @@
       "@components/*": ["src/app/components/*"],
       "@pages/*": ["src/app/pages/*"],
       "@utils/*": ["src/app/utils/*"],
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "@guards/*": ["src/app/guards/*"],
     }
   },
   "angularCompilerOptions": {
