@@ -9,6 +9,7 @@ import { AuthReverseGuard } from '@guards/auth-reverse.guard';
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent, canActivate: [AuthReverseGuard] },
-    { path: 'register-vehiculo', component: VehicleRegistrationComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: InicioSesionComponent, canActivate: [AuthReverseGuard] }
+    { path: 'register-vehicle', component: VehicleRegistrationComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: InicioSesionComponent, canActivate: [AuthReverseGuard] },
+    {path: '**', redirectTo: ''}
 ];
