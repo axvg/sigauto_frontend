@@ -27,9 +27,6 @@ export class InicioSesionComponent {
 
   login() {
     console.log(this.form.value);
-    const template = this.successTpl;
-    this.toastService.show({ template });
-
     if (this.form.invalid) {
       console.log('form invalid')
       return;
@@ -42,10 +39,12 @@ export class InicioSesionComponent {
 
     this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       response => {
+        this.toastService.show('Ingreso exitoso', 'success');
         console.log('Login successful', response);
       },
       error => {
-        console.error('Login failed', error);
+        this.toastService.show(`Ingreso fallido. ${error?.error}`, 'danger');
+        console.error('Login failed', error.error);
       }
     );
   }
