@@ -46,10 +46,10 @@
                   <span>Hola, {{ names }}</span>
                 </button>
                 <div ngbDropdownMenu>
-                    <button ngbDropdownItem>Perfil</button>
-                    <button ngbDropdownItem>Programar cita</button>
-                    <button ngbDropdownItem>Registrar vehiculo</button>
-                    <button ngbDropdownItem>Historial</button>
+                    <button ngbDropdownItem routerLink="/me">Perfil</button>
+                    <button ngbDropdownItem routerLink="/register-cita">Programar cita</button>
+                    <button ngbDropdownItem routerLink="/register-vehicle">Registrar vehiculo</button>
+                    <button ngbDropdownItem routerLink="/cita-history">Historial</button>
                     <button ngbDropdownItem (click)="logout()">Salir</button>
                 </div>
               </div>
