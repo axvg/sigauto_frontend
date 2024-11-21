@@ -12,4 +12,12 @@ export class AuthService {
     console.log('login service')
     return this.http.post(`${environment.url}/api/auth/login`, { email, password });
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
 }
