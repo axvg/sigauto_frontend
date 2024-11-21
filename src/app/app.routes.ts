@@ -5,11 +5,13 @@ import { VehicleRegistrationComponent } from '@components/vehicle-registration/v
 import { InicioSesionComponent } from '@components/inicio-sesion/inicio-sesion.component';
 import { AuthGuard } from '@guards/auth.guard';
 import { AuthReverseGuard } from '@guards/auth-reverse.guard';
+import { ProgramarCitaPageComponent } from '@pages/programar-cita-page/programar-cita-page.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent, canActivate: [AuthReverseGuard] },
     { path: 'register-vehicle', component: VehicleRegistrationComponent, canActivate: [AuthGuard] },
+    { path: 'register-cita', component: ProgramarCitaPageComponent},
     { path: 'login', component: InicioSesionComponent, canActivate: [AuthReverseGuard] },
     {path: '**', redirectTo: ''}
 ];
