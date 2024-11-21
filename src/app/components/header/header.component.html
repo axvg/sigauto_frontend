@@ -46,7 +46,11 @@
                   <span>Nombre A.</span>
                 </button>
                 <div ngbDropdownMenu>
-                  <button ngbDropdownItem (click)="logout()">Salir</button>
+                    <button ngbDropdownItem>Perfil</button>
+                    <button ngbDropdownItem>Programar cita</button>
+                    <button ngbDropdownItem>Registrar vehiculo</button>
+                    <button ngbDropdownItem>Historial</button>
+                    <button ngbDropdownItem (click)="logout()">Salir</button>
                 </div>
               </div>
         } @else {
