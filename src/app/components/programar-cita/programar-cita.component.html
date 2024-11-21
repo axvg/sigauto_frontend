@@ -1,0 +1,100 @@
+<div class="page-container">
+    <div class="form-container">
+      <h1 class="title">Programar Cita</h1>
+      <p class="subtitle">Cita para el vehículo elegido con placa XYZ123</p>
+  
+      <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <!-- Nombre y Apellido -->
+          <div class="form-group col-md-6">
+            <label for="nombre" class="form-label">Nombre y Apellido</label>
+            <input
+              id="nombre"
+              type="text"
+              class="form-control"
+              formControlName="nombre"
+              placeholder="Nombre"
+              required
+            />
+          </div>
+  
+          <!-- Teléfono -->
+          <div class="form-group col-md-6">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input
+              id="telefono"
+              type="text"
+              class="form-control"
+              formControlName="telefono"
+              placeholder="Teléfono"
+              required
+            />
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <!-- Email -->
+          <div class="form-group col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              formControlName="email"
+              placeholder="Correo electrónico"
+              required
+            />
+          </div>
+  
+          <!-- Vehículo -->
+          <div class="form-group col-md-6">
+            <label for="vehiculo" class="form-label">Vehículo</label>
+            <input
+              id="vehiculo"
+              type="text"
+              class="form-control"
+              formControlName="vehiculo"
+              placeholder="Modelo del Vehículo"
+              required
+            />
+          </div>
+        </div>
+  
+        <!-- Servicio requerido -->
+        <div class="form-group">
+          <label for="servicio" class="form-label">Servicio Requerido</label>
+          <select id="servicio" class="form-select" formControlName="servicio">
+            <option value="" disabled selected>Seleccione un servicio</option>
+            <option>Mantenimiento</option>
+            <option>Revisión</option>
+            <option>Otro</option>
+          </select>
+        </div>
+  
+        <!-- Fecha y Hora -->
+        <div class="form-group">
+          <label for="fechaHora" class="form-label">Fecha y Hora</label>
+          <input
+            id="fechaHora"
+            type="datetime-local"
+            class="form-control"
+            formControlName="fechaHora"
+            required
+          />
+        </div>
+  
+        <!-- Botones -->
+        <div class="form-actions d-flex justify-content-between">
+          <button type="button" class="btn-back btn btn-dark" (click)="onBack()">&#8592; Volver</button>
+          <button type="submit" class="btn-submit btn btn-danger">Reservar</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Mapa -->
+    <div class="map-container">
+      <img src="assets/map-placeholder.png" alt="Mapa de ubicación" class="map" />
+    </div>
+  </div>
+  
+  
