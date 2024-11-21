@@ -1,9 +1,10 @@
 import { Injectable, TemplateRef } from '@angular/core';
 
+export type ToastType = 'success' | 'danger' | 'warning' | 'info';
 
 export interface Toast {
-	template: TemplateRef<any>;
-	classname?: string;
+	message: string;
+	type: ToastType;
 	delay?: number;
 }
 
@@ -13,16 +14,23 @@ export interface Toast {
 export class ToastService {
 	toasts: Toast[] = [];
 
-	show(toast: Toast) {
+	show(message: string, type: ToastType = 'info') {
+		const toast: Toast = {
+		  message,
+		  type,
+		  delay: 3000
+		};
+		
+		console.log('adding this toast', toast);
 		this.toasts.push(toast);
-		console.log('toasts', this.toasts)
 	}
+	
 
 	remove(toast: Toast) {
 		this.toasts = this.toasts.filter((t) => t !== toast);
 	}
 
 	clear() {
-		this.toasts.splice(0, this.toasts.length);
+		this.toasts = [];
 	}
 }
