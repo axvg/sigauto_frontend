@@ -1,9 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject,TemplateRef,ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 import { Location } from '@angular/common';
+import { ToastService } from '@services/toast.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -15,6 +16,9 @@ import { Location } from '@angular/common';
 export class InicioSesionComponent {
   authService = inject(AuthService);
   location = inject(Location);
+  toastService = inject(ToastService)
+  @ViewChild('successTpl', { static: true }) successTpl!: TemplateRef<any>;
+
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -23,7 +27,6 @@ export class InicioSesionComponent {
 
   login() {
     console.log(this.form.value);
-
     if (this.form.invalid) {
       console.log('form invalid')
       return;
@@ -36,10 +39,12 @@ export class InicioSesionComponent {
 
     this.authService.login(this.form.value.email, this.form.value.password).subscribe(
       response => {
+        this.toastService.show('Ingreso exitoso', 'success');
         console.log('Login successful', response);
       },
       error => {
-        console.error('Login failed', error);
+        this.toastService.show(`Ingreso fallido. ${error?.error}`, 'danger');
+        console.error('Login failed', error.error);
       }
     );
   }
