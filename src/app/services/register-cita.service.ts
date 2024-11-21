@@ -8,6 +8,16 @@ import { Router } from '@angular/router';
 export class RegisterCitaService {
   http = inject(HttpClient);
   router = inject(Router);
+  
+  register(registerCitaData: RegisterCitaModel) {
+    return this.http.post(`${environment.url}/api/citas`, registerCitaData).pipe(
+      tap((res) => {
+        console.log('Register Cita response', res);
+      }),
+      tap(() => {
+        this.router.navigate(['/citas-history']);
+      })
+    );
+  }
 
-  constructor() { }
 }
