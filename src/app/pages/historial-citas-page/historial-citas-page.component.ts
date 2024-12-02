@@ -4,6 +4,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CitasService } from '@services/citas.service';
 import { TiposServicioService } from '@services/tipos-servicio.service';
+import { TokenService } from '@services/token.service';
 
 @Component({
   selector: 'app-historial-citas-page',
@@ -17,11 +18,12 @@ export class HistorialCitasPageComponent {
 
 
   citasService = inject(CitasService);
-  tiposServicioService = inject(TiposServicioService
+  tiposServicioService = inject(TiposServicioService);
+  tokenService = inject(TokenService);
 
-  );
+  clientId = this.tokenService.getClienteId
 
-  citas$ = this.citasService.getCitasByClienteId(2);
+  citas$ = this.citasService.getCitasByClienteId(+this.clientId);
   getServicioById(id: number){
     return this.tiposServicioService.getServicioById(id);
   }
