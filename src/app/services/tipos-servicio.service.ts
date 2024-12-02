@@ -19,15 +19,19 @@ export class TiposServicioService {
     },
     {
       id: 4,
-      name: 'CAMBIO DE FILTRO'
+      name: 'CAMBIO DE LLANTA'
     },
     {
       id: 5,
-      name: 'CAMBIO DE LLANTAS'
+      name: 'CAMBIO DE FILTRO'
     },
   ]
 
   getServicioById(id: number) {
     return this.servicios.find(servicio => servicio.id === id);
+  }
+
+  getServicios(){
+    return this.servicios;
   }
 }
