@@ -5,6 +5,7 @@ import { VehicleRegistrationComponent } from '@components/vehicle-registration/v
 import { InicioSesionComponent } from '@components/inicio-sesion/inicio-sesion.component';
 import { AuthGuard } from '@guards/auth.guard';
 import { AuthReverseGuard } from '@guards/auth-reverse.guard';
+import { HistorialCitasPageComponent } from '@pages/historial-citas-page/historial-citas-page.component';
 import { ProgramarCitaPageComponent } from '@pages/programar-cita-page/programar-cita-page.component';
 
 export const routes: Routes = [
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'register-vehicle', component: VehicleRegistrationComponent, canActivate: [AuthGuard] },
     { path: 'register-cita', component: ProgramarCitaPageComponent},
     { path: 'login', component: InicioSesionComponent, canActivate: [AuthReverseGuard] },
+    { path: 'cita-history', component: HistorialCitasPageComponent},
     {path: '**', redirectTo: ''}
 ];
