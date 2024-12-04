@@ -21,7 +21,7 @@ export class HistorialCitasPageComponent {
   tiposServicioService = inject(TiposServicioService);
   tokenService = inject(TokenService);
 
-  clientId = this.tokenService.getClienteId
+  clientId = this.tokenService.getClienteId();
 
   citas$ = this.citasService.getCitasByClienteId(+this.clientId);
   getServicioById(id: number){
