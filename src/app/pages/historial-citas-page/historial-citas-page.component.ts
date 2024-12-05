@@ -25,7 +25,7 @@ export class HistorialCitasPageComponent {
 
   citas$ = this.citasService.getCitasByClienteId(+this.clientId);
   getServicioById(id: number){
-    return this.tiposServicioService.getServicioById(id);
+    return this.tiposServicioService.getServicioById(id)?.name;
   }
 
   onBack(){
