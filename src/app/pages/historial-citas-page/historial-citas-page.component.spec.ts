@@ -60,7 +60,7 @@ describe('HistorialCitasPageComponent', () => {
       const result = component.getServicioById(1);
 
       expect(mockTiposServicioService.getServicioById).toHaveBeenCalledWith(1);
-      expect(result).toEqual(mockServicio);
+      expect(result).toEqual(mockServicio?.name);
     });
   });
 
